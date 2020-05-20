@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3">
+      <h2 class="my-4">Ingrese un número</h2>
+      <input class="form-control" type="number" [(ngModel)]="numero" />
+      <br />
+      <button class="btn btn-warning btn-block" (click)="calcular(numero)">Calcular</button>
+    </div>
+    <!-- /.col-lg-9 -->
+
+    <div class="col-lg-9">
+      <div class="card card-outline-secondary my-4">
+        <div class="card-header">
+          <!-- En esta parte va el apartado del lado derecho para la definición de colores -->
+          Multiplos de 3 <i class="fa fa-minus-circle text-success" aria-hidden="true"></i> 5
+          <i class="fa fa-minus-circle text-danger" aria-hidden="true"></i> 7
+          <i class="fa fa-minus-circle text-info" aria-hidden="true"></i>
+        </div>
+        <div class="card-body">
+          <a *ngFor="let number of multiples_3">
+            <i class="fa fa-minus-circle text-success" aria-hidden="true"></i>{{ number }}
+          </a>
+          <hr />
+          <a *ngFor="let number of multiples_5">
+            <i class="fa fa-minus-circle text-danger" aria-hidden="true"></i>{{ number }}
+          </a>
+          <hr />
+          <a *ngFor="let number of multiples_7">
+            <i class="fa fa-minus-circle text-info" aria-hidden="true"></i>{{ number }}
+          </a>
+          <hr />
+          Numeros repetidos
+          <a *ngFor="let number of repetidos">
+            <i class="fa fa-minus-circle text-success" aria-hidden="true"></i>{{ number }}
+          </a>
+          <a *ngFor="let number of repetidos1">
+            <i class="fa fa-minus-circle text-danger" aria-hidden="true"></i>{{ number }}
+          </a>
+        </div>
+      </div>
+      <div class="card card-outline-secondary my-4">
+        <div class="card-header">
+          Datos Guardados
+        </div>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Número</th>
+                <th scope="col">Multiplo de 3</th>
+                <th scope="col">Multiplo de 5</th>
+                <th scope="col">Multiplo de 7</th>
+                <th scope="col">Repetidos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let x of ejersave">
+                <td>{{ x.consulta }}</td>
+                <td>{{ x.multiplos3 }}</td>
+                <td>{{ x.multiplos5 }}</td>
+                <td>{{ x.multiplos7 }}</td>
+                <td>{{ x.repetidos }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- /.col-lg-9 -->
+  </div>
+</div>
